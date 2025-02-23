@@ -1,37 +1,36 @@
 package ec.edu.espe.Proyecto3P.entity;
 
 import jakarta.persistence.*;
+import java.util.Objects;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "usuarios")
-public class UsuarioEntity {
-
+public abstract class UsuarioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
-    private Integer id;
+    private Long id;
 
-    @Column(name = "username", nullable = false, unique = true, length = 50)
+    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password", nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @Column(name = "rol", nullable = false, length = 20)
-    private String role; // "VENDEDOR", "COMPRADOR", "ADMINISTRADOR"
+    @Column(nullable = false)
+    private String email;
 
-    @Column(name = "activo", nullable = false)
-    private Boolean activo;
+    @Column(nullable = false)
+    private boolean activo = true; // Para eliminación lógica
 
-    public UsuarioEntity() {}
+    // Getters y Setters
 
-    // Getters y Setters...
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,19 +50,20 @@ public class UsuarioEntity {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public String getEmail() {
+        return email;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Boolean getActivo() {
+    public boolean isActivo() {
         return activo;
     }
 
-    public void setActivo(Boolean activo) {
+    public void setActivo(boolean activo) {
         this.activo = activo;
     }
 }
+
