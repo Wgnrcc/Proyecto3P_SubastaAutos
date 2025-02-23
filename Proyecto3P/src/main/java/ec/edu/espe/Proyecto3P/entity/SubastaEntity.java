@@ -1,36 +1,33 @@
 package ec.edu.espe.Proyecto3P.entity;
 
-import jakarta.persistence.*;
-
-import java.time.Duration;
+import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "subastas")
 public class SubastaEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_subasta")
-    private Integer id;
+    private Long id;
 
-    @Column(name = "fecha_inicio", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime fechaInicio;
 
-    @Column(name = "duracion", nullable = false)
-    private Duration duracion;
+    @Column(nullable = false)
+    private LocalDateTime fechaFin;
 
-    @Column(name = "activa", nullable = false)
-    private Boolean activa;
+    @ManyToOne
+    @JoinColumn(name = "auto_id", nullable = false)
+    private Auto auto;
 
-    public SubastaEntity() {}
+    // Getters y Setters
 
-    // Getters y Setters...
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -42,19 +39,19 @@ public class SubastaEntity {
         this.fechaInicio = fechaInicio;
     }
 
-    public Duration getDuracion() {
-        return duracion;
+    public LocalDateTime getFechaFin() {
+        return fechaFin;
     }
 
-    public void setDuracion(Duration duracion) {
-        this.duracion = duracion;
+    public void setFechaFin(LocalDateTime fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
-    public Boolean getActiva() {
-        return activa;
+    public Auto getAuto() {
+        return auto;
     }
 
-    public void setActiva(Boolean activa) {
-        this.activa = activa;
+    public void setAuto(Auto auto) {
+        this.auto = auto;
     }
 }
