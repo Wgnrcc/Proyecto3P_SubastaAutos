@@ -1,85 +1,69 @@
 package ec.edu.espe.Proyecto3P.entity;
 
-import jakarta.persistence.*;
-
-import java.math.BigDecimal;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "pujas")
 public class PujaEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_puja")
-    private Integer id;
+    private Long id;
+
+    @Column(nullable = false)
+    private double monto;
+
+    @Column(nullable = false)
+    private LocalDateTime fecha;
 
     @ManyToOne
-    @JoinColumn(name = "id_subasta", nullable = false)
-    private SubastaEntity subasta;
+    @JoinColumn(name = "comprador_id", nullable = false)
+    private Comprador comprador;
 
     @ManyToOne
-    @JoinColumn(name = "id_vehiculo", nullable = false)
-    private VehiculoEntity vehiculo;
+    @JoinColumn(name = "subasta_id", nullable = false)
+    private Subasta subasta;
 
-    @ManyToOne
-    @JoinColumn(name = "id_comprador", nullable = false)
-    private UsuarioEntity comprador;
+    // Getters y Setters
 
-    @Column(name = "monto", nullable = false, precision = 10, scale = 2)
-    private BigDecimal monto;
-
-    @Column(name = "fecha_puja", nullable = false)
-    private LocalDateTime fechaPuja;
-
-    public PujaEntity() {}
-
-    // Getters y Setters...
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public SubastaEntity getSubasta() {
-        return subasta;
-    }
-
-    public void setSubasta(SubastaEntity subasta) {
-        this.subasta = subasta;
-    }
-
-    public VehiculoEntity getVehiculo() {
-        return vehiculo;
-    }
-
-    public void setVehiculo(VehiculoEntity vehiculo) {
-        this.vehiculo = vehiculo;
-    }
-
-    public UsuarioEntity getComprador() {
-        return comprador;
-    }
-
-    public void setComprador(UsuarioEntity comprador) {
-        this.comprador = comprador;
-    }
-
-    public BigDecimal getMonto() {
+    public double getMonto() {
         return monto;
     }
 
-    public void setMonto(BigDecimal monto) {
+    public void setMonto(double monto) {
         this.monto = monto;
     }
 
-    public LocalDateTime getFechaPuja() {
-        return fechaPuja;
+    public LocalDateTime getFecha() {
+        return fecha;
     }
 
-    public void setFechaPuja(LocalDateTime fechaPuja) {
-        this.fechaPuja = fechaPuja;
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
+
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
+    public Subasta getSubasta() {
+        return subasta;
+    }
+
+    public void setSubasta(Subasta subasta) {
+        this.subasta = subasta;
     }
 }
