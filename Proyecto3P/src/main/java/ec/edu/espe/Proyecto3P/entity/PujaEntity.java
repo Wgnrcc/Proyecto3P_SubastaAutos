@@ -1,6 +1,6 @@
 package ec.edu.espe.Proyecto3P.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
