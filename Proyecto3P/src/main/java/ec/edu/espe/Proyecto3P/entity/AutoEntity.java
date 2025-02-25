@@ -3,7 +3,7 @@ package ec.edu.espe.Proyecto3P.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
