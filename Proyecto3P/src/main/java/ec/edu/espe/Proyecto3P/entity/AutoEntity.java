@@ -28,7 +28,7 @@ public class AutoEntity {
 
     @ManyToOne
     @JoinColumn(name = "vendedor_id", nullable = false)
-    private Vendedor vendedor;
+    private VendedorEntity vendedor;
 
     // Getters y Setters
 
@@ -72,11 +72,11 @@ public class AutoEntity {
         this.precioBase = precioBase;
     }
 
-    public Vendedor getVendedor() {
+    public VendedorEntity getVendedor() {
         return vendedor;
     }
 
-    public void setVendedor(Vendedor vendedor) {
+    public void setVendedor(VendedorEntity vendedor) {
         this.vendedor = vendedor;
     }
 }

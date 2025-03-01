@@ -19,7 +19,7 @@ public class PujaEntity {
 
     @ManyToOne
     @JoinColumn(name = "comprador_id", nullable = false)
-    private Comprador comprador;
+    private CompradoresEntity comprador;
 
     @ManyToOne
     @JoinColumn(name = "subasta_id", nullable = false)
@@ -51,11 +51,11 @@ public class PujaEntity {
         this.fecha = fecha;
     }
 
-    public Comprador getComprador() {
+    public CompradoresEntity getComprador() {
         return comprador;
     }
 
-    public void setComprador(Comprador comprador) {
+    public void setComprador(CompradoresEntity comprador) {
         this.comprador = comprador;
     }
 

@@ -1,6 +1,8 @@
 package ec.edu.espe.Proyecto3P.entity;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,9 +21,10 @@ public class Subasta {
 
     @ManyToOne
     @JoinColumn(name = "auto_id", nullable = false)
-    private Auto auto;
+    private AutoEntity auto;
 
     // Getters y Setters
+
 
     public Long getId() {
         return id;
@@ -47,11 +50,11 @@ public class Subasta {
         this.fechaFin = fechaFin;
     }
 
-    public Auto getAuto() {
+    public AutoEntity getAuto() {
         return auto;
     }
 
-    public void setAuto(Auto auto) {
+    public void setAuto(AutoEntity auto) {
         this.auto = auto;
     }
 }
